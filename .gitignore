@@ -24,3 +24,6 @@ coverage.html
 *.min.*.js
 *.min.*.css
 assets.json
+
+# ignore WebStorm config
+.idea
