@@ -94,8 +94,8 @@ if (typeof exports !== "undefined") {
   Showdown = exports;
   var config = require('../../config').config;
   HOST = 'http://' + config.host;
-  if (config.port !== 80) {
-    HOST += ':' + config.port;
+  if (config.expose_port !== 80) {
+    HOST += ':' + config.expose_port;
   }
 } else {
   HOST = window.location.protocol + '//' + window.location.host;
