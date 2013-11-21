@@ -15,6 +15,8 @@ var pkg = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json')));
 var config = require('./config').config;
 config.version = pkg.version;
 
+var bootstrap = require('./bootstrap');
+
 // assets
 var assets = {};
 if (config.mini_assets) {
@@ -102,6 +104,9 @@ app.configure('production', function () {
 
 // routes
 routes(app);
+
+// Initialization
+bootstrap();
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(config.port);
