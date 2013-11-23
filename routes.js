@@ -27,6 +27,9 @@ module.exports = function (app) {
   // home page
   app.get('/', site.index);
 
+  app.get('/on/*', site.index);
+  app.get('/in/*', site.index);
+
   // sign up, login, logout
   app.get('/signup', sign.showSignup);
   app.post('/signup', sign.signup);

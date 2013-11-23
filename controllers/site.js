@@ -16,6 +16,19 @@ var config = require('../config').config;
 var EventProxy = require('eventproxy');
 
 exports.index = function (req, res, next) {
+  var inCompany;
+  var onTopic;
+  var reqUrl = req.url;
+  var reqUrlSplit = reqUrl.split('/');
+  for (var s in reqUrlSplit) {
+      if (reqUrlSplit[s] === 'in') {
+          inCompany = reqUrlSplit[++s];
+      }
+      else if (reqUrlSplit[s] === 'on') {
+          onTopic = reqUrlSplit[++s];
+      }
+  }
+
   var page = parseInt(req.query.page, 10) || 1;
   var keyword = req.query.q || ''; // in-site search
   if (Array.isArray(keyword)) {
@@ -48,7 +61,9 @@ exports.index = function (req, res, next) {
       tops: tops,
       no_reply_topics: no_reply_topics,
       pages: pages,
-      keyword: keyword
+      keyword: keyword,
+      inCompany: inCompany,
+      onTopic: onTopic
     });
   };
 
@@ -62,6 +77,12 @@ exports.index = function (req, res, next) {
   if (keyword) {
     keyword = keyword.replace(/[\*\^\&\(\)\[\]\+\?\\]/g, '');
     query.title = new RegExp(keyword, 'i');
+  }
+  if (inCompany) {
+      query.in = inCompany;
+  }
+  if (onTopic) {
+      query.on = onTopic;
   }
   // 取主题
   Topic.getTopicsByQuery(query, options, proxy.done('topics'));

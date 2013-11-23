@@ -82,11 +82,29 @@
     <div id='wrapper'>
       <div id='main'>
           <div class="inner" style="background-color: #fff; border-top-left-radius: 3px; border-top-right-radius: 3px;" id="Tabs">
-              <a href="/#" class="tab_current">华为</a> <a href="/#" class="tab">趋势</a> <a href="/#" class="tab">三星</a> <a href="/#" class="tab">爱立信</a> <a href="/#" class="tab">润和</a> <a href="/#" class="tab">文思</a> <a href="/#" class="tab">诚迈</a> <a href="/#" class="tab">中软</a> <a href="/#" class="tab">中兴</a>
-              <a href="/#" class="tab">邦宁</a> <a href="/#" class="tab">东软</a> <a href="/#" class="tab">神州</a> <a href="/#" class="tab">欧维特</a> <a href="/#" class="tab">苏宁易购</a>
+              <a href="/in/huawei" <% if (locals.inCompany == 'huawei') { %> class="tab_current"<% } else {%> class="tab" <% } %> >华为</a>
+              <a href="/in/samsung" <% if (locals.inCompany == 'samsung') { %> class="tab_current"<% } else {%> class="tab" <% } %> >三星</a>
+              <a href="/in/ericsson" <% if (locals.inCompany == 'ericsson') { %> class="tab_current"<% } else {%> class="tab" <% } %> >爱立信</a>
+              <a href="/in/hoperun" <% if (locals.inCompany == 'hoperun') { %> class="tab_current"<% } else {%> class="tab" <% } %> >润和</a>
+              <a href="/in/pactera" <% if (locals.inCompany == 'pactera') { %> class="tab_current"<% } else {%> class="tab" <% } %> >文思海辉</a>
+              <a href="/in/archermind" <% if (locals.inCompany == 'archermind') { %> class="tab_current"<% } else {%> class="tab" <% } %> >诚迈</a>
+              <a href="/in/zhongruan" <% if (locals.inCompany == 'zhongruan') { %> class="tab_current"<% } else {%> class="tab" <% } %> >中软</a>
+              <a href="/in/zte" <% if (locals.inCompany == 'zte') { %> class="tab_current"<% } else {%> class="tab" <% } %> >中兴</a>
+              <a href="/in/bangning" <% if (locals.inCompany == 'bangning') { %> class="tab_current"<% } else {%> class="tab" <% } %> >邦宁</a>
+              <a href="/in/dongruan" <% if (locals.inCompany == 'dongruan') { %> class="tab_current"<% } else {%> class="tab" <% } %> >东软</a>
+              <a href="/in/shenzhou" <% if (locals.inCompany == 'shenzhou') { %> class="tab_current"<% } else {%> class="tab" <% } %> >神州</a>
+              <a href="/in/arvato" <% if (locals.inCompany == 'arvato') { %> class="tab_current"<% } else {%> class="tab" <% } %> >欧唯特</a>
+              <a href="/in/suning" <% if (locals.inCompany == 'suning') { %> class="tab_current"<% } else {%> class="tab" <% } %> >苏宁易购</a>
           </div>
           <div class="inner" style="background-color: #fff; border-top-left-radius: 3px; border-top-right-radius: 3px; margin-top: -10px; margin-left: 18px;" id="Sub-Tabs">
-              <a href="/#" class="tab">技术</a> <a href="/#" class="tab">聚餐</a> <a href="/#" class="tab">电影</a> <a href="/#" class="tab">妹子</a> <a href="/#" class="tab">二手</a> <a href="/#" class="tab">合租</a> <a href="/#" class="tab">搭档</a>
+              <a href="/on/tech" <% if (locals.onTopic == 'tech') { %> class="tab_current"<% } else {%> class="tab" <% } %> >技术</a>
+              <a href="/on/food" <% if (locals.onTopic == 'food') { %> class="tab_current"<% } else {%> class="tab" <% } %> >腐败</a>
+              <a href="/on/movie" <% if (locals.onTopic == 'movie') { %> class="tab_current"<% } else {%> class="tab" <% } %> >电影</a>
+              <a href="/on/beauty" <% if (locals.onTopic == 'beauty') { %> class="tab_current"<% } else {%> class="tab" <% } %> >女神</a>
+              <a href="/on/travel" <% if (locals.onTopic == 'travel') { %> class="tab_current"<% } else {%> class="tab" <% } %> >旅游</a>
+              <a href="/on/trade" <% if (locals.onTopic == 'trade') { %> class="tab_current"<% } else {%> class="tab" <% } %> >二手</a>
+              <a href="/on/rent" <% if (locals.onTopic == 'rent') { %> class="tab_current"<% } else {%> class="tab" <% } %> >合租</a>
+              <a href="/on/partner" <% if (locals.onTopic == 'partner') { %> class="tab_current"<% } else {%> class="tab" <% } %> >搭档</a>
           </div>
         <%- body %>
       </div>
