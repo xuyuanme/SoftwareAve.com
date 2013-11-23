@@ -22,10 +22,10 @@ exports.index = function (req, res, next) {
   var reqUrlSplit = reqUrl.split('/');
   for (var s in reqUrlSplit) {
       if (reqUrlSplit[s] === 'in') {
-          inCompany = reqUrlSplit[++s];
+          inCompany = decodeURI(reqUrlSplit[++s]);
       }
       else if (reqUrlSplit[s] === 'on') {
-          onTopic = reqUrlSplit[++s];
+          onTopic = decodeURI(reqUrlSplit[++s]);
       }
   }
 
