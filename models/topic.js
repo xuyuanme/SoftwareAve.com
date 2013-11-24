@@ -14,7 +14,10 @@ var TopicSchema = new Schema({
   update_at: { type: Date, default: Date.now },
   last_reply: { type: ObjectId },
   last_reply_at: { type: Date, default: Date.now },
-  content_is_html: { type: Boolean }
+  content_is_html: { type: Boolean },
+  in: { type: String },
+  on: { type: String },
+  hide: { type: Boolean}
 });
 
 mongoose.model('Topic', TopicSchema);

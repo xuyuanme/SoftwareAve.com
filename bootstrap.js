@@ -1,26 +1,31 @@
-var mongoose = require('mongoose');
-var ObjectId = require('mongoose').Types.ObjectId;
 var models = require('./models');
-var Tag = models.Tag;
-var TopicTag = models.TopicTag;
+var Topic = models.Topic;
 
 module.exports = function() {
-    console.log('Do some bootstrap jobs');
-//    Tag.remove().exec();
-//    var tag = new Tag();
-//    tag.name = 'HuaWei';
-//    tag.save();
-//    tag = new Tag();
-//    tag.name = 'Hoperun';
-//    tag.save();
+    console.log('Initialize tags');
 
-//    TopicTag.remove().exec();
-//    var topicTag = new TopicTag();
-//    topicTag.topic_id = mongoose.Types.ObjectId('5289f94f0e2bbe0816000003');
-//    topicTag.tag_id = mongoose.Types.ObjectId("528b2a090fa91a5022000001");
-//    topicTag.save();
-//    topicTag = new TopicTag();
-//    topicTag.topic_id = mongoose.Types.ObjectId('528b163e8559a9ac26000010');
-//    topicTag.tag_id = mongoose.Types.ObjectId('528b2a090fa91a5022000002');
-//    topicTag.save();
+    Topic.remove({'hide':true}).exec();
+
+    var topic = new Topic(); topic.in = '华为'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '三星'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '爱立信'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '润和'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '文思海辉'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '诚迈'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '中软'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '中兴'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '邦宁'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '东软'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '神州'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '欧唯特'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '苏宁易购'; topic.hide = true; topic.save();
+
+    topic = new Topic(); topic.on = '技术'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.on = '腐败'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.on = '电影'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.on = '女神'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.on = '旅游'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.on = '二手'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.on = '合租'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.on = '搭档'; topic.hide = true; topic.save();
 }

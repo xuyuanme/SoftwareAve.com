@@ -84,16 +84,17 @@ exports.index = function (req, res, next) {
   if (onTopic) {
       query.on = onTopic;
   }
+  query.hide = null;
   // 取主题
   Topic.getTopicsByQuery(query, options, proxy.done('topics'));
   // 取热门主题
-  Topic.getTopicsByQuery({}, { limit: 5, sort: [ [ 'visit_count', 'desc' ] ] }, proxy.done('hot_topics'));
+  Topic.getTopicsByQuery({hide: null}, { limit: 5, sort: [ [ 'visit_count', 'desc' ] ] }, proxy.done('hot_topics'));
   // 取星标用户
   User.getUsersByQuery({ is_star: true }, { limit: 5 }, proxy.done('stars'));
   // 取排行榜上的用户
   User.getUsersByQuery({}, { limit: 10, sort: [ [ 'score', 'desc' ] ] }, proxy.done('tops'));
   // 取0回复的主题
-  Topic.getTopicsByQuery({ reply_count: 0 }, { limit: 5, sort: [ [ 'create_at', 'desc' ] ] },
+  Topic.getTopicsByQuery({ reply_count: 0, hide: null }, { limit: 5, sort: [ [ 'create_at', 'desc' ] ] },
   proxy.done('no_reply_topics'));
   // 取分页数据
   Topic.getCountByQuery(query, proxy.done(function (all_topics_count) {
