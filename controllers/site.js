@@ -37,7 +37,7 @@ exports.index = function (req, res, next) {
   keyword = keyword.trim();
   var limit = config.list_topic_count;
 
-  var render = function (tags, topics, hot_topics, stars, tops, no_reply_topics, pages, inCompanyTags, onTopicTags) {
+  var render = function (tags, topics, hot_topics, stars, tops, no_reply_topics, pages) {
     var all_tags = tags.slice(0);
 
     // 计算最热标签
@@ -63,13 +63,13 @@ exports.index = function (req, res, next) {
       pages: pages,
       keyword: keyword,
       inCompany: inCompany,
-      onTopic: onTopic,
-      inCompanyTags: inCompanyTags,
-      onTopicTags: onTopicTags
+      onTopic: onTopic
+//      inCompanyTags: inCompanyTags,
+//      onTopicTags: onTopicTags
     });
   };
 
-  var proxy = EventProxy.create('tags', 'topics', 'hot_topics', 'stars', 'tops', 'no_reply_topics', 'pages', 'inCompanyTags', 'onTopicTags', render);
+  var proxy = EventProxy.create('tags', 'topics', 'hot_topics', 'stars', 'tops', 'no_reply_topics', 'pages', render);
   proxy.fail(next);
   // 取标签
   Tag.getAllTags(proxy.done('tags'));
@@ -89,8 +89,8 @@ exports.index = function (req, res, next) {
   query.hide = null;
 
   // Retrieve distinct tags from topics
-  Topic.getInCompanyTags(proxy.done('inCompanyTags'));
-  Topic.getOnTopicTags(proxy.done('onTopicTags'));
+//  Topic.getInCompanyTags(proxy.done('inCompanyTags'));
+//  Topic.getOnTopicTags(proxy.done('onTopicTags'));
 
   // 取主题
   Topic.getTopicsByQuery(query, options, proxy.done('topics'));
