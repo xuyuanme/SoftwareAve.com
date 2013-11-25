@@ -1,5 +1,20 @@
 <%- partial('sidebar') %>
 
+<div class="inner" style="background-color: #fff; border-top-left-radius: 3px; border-top-right-radius: 3px;" id="Tabs">
+    <% inCompanyTags.forEach(function(el, index) { %>
+    <a href='/in/<%= el%>' <% if (locals.inCompany == el) { %> class="tab_current"<% } else {%> class="tab" <% } %> >
+    <%= el%>
+    </a>
+    <% }) %>
+</div>
+<div class="inner" style="background-color: #fff; border-top-left-radius: 3px; border-top-right-radius: 3px; margin-top: -10px; margin-left: 18px;" id="Sub-Tabs">
+    <% onTopicTags.forEach(function(el, index) { %>
+    <a href="/on/<%= el%>" <% if (locals.onTopic == el) { %> class="tab_current"<% } else {%> class="tab" <% } %> >
+    <%= el%>
+    </a>
+    <% }) %>
+</div>
+
 <div id="content">
   <div class="panel">
     <div class="inner">
