@@ -82,29 +82,18 @@
     <div id='wrapper'>
       <div id='main'>
           <div class="inner" style="background-color: #fff; border-top-left-radius: 3px; border-top-right-radius: 3px;" id="Tabs">
-              <a href="/in/华为" <% if (locals.inCompany == '华为') { %> class="tab_current"<% } else {%> class="tab" <% } %> >华为</a>
-              <a href="/in/三星" <% if (locals.inCompany == '三星') { %> class="tab_current"<% } else {%> class="tab" <% } %> >三星</a>
-              <a href="/in/爱立信" <% if (locals.inCompany == '爱立信') { %> class="tab_current"<% } else {%> class="tab" <% } %> >爱立信</a>
-              <a href="/in/润和" <% if (locals.inCompany == '润和') { %> class="tab_current"<% } else {%> class="tab" <% } %> >润和</a>
-              <a href="/in/文思海辉" <% if (locals.inCompany == '文思海辉') { %> class="tab_current"<% } else {%> class="tab" <% } %> >文思海辉</a>
-              <a href="/in/诚迈" <% if (locals.inCompany == '诚迈') { %> class="tab_current"<% } else {%> class="tab" <% } %> >诚迈</a>
-              <a href="/in/中软" <% if (locals.inCompany == '中软') { %> class="tab_current"<% } else {%> class="tab" <% } %> >中软</a>
-              <a href="/in/中兴" <% if (locals.inCompany == '中兴') { %> class="tab_current"<% } else {%> class="tab" <% } %> >中兴</a>
-              <a href="/in/邦宁" <% if (locals.inCompany == '邦宁') { %> class="tab_current"<% } else {%> class="tab" <% } %> >邦宁</a>
-              <a href="/in/东软" <% if (locals.inCompany == '东软') { %> class="tab_current"<% } else {%> class="tab" <% } %> >东软</a>
-              <a href="/in/神州" <% if (locals.inCompany == '神州') { %> class="tab_current"<% } else {%> class="tab" <% } %> >神州</a>
-              <a href="/in/欧唯特" <% if (locals.inCompany == '欧唯特') { %> class="tab_current"<% } else {%> class="tab" <% } %> >欧唯特</a>
-              <a href="/in/苏宁易购" <% if (locals.inCompany == '苏宁易购') { %> class="tab_current"<% } else {%> class="tab" <% } %> >苏宁易购</a>
+            <% inCompanyTags.forEach(function(el, index) { %>
+              <a href='/in/<%= el%>' <% if (locals.inCompany == el) { %> class="tab_current"<% } else {%> class="tab" <% } %> >
+                <%= el%>
+              </a>
+            <% }) %>
           </div>
           <div class="inner" style="background-color: #fff; border-top-left-radius: 3px; border-top-right-radius: 3px; margin-top: -10px; margin-left: 18px;" id="Sub-Tabs">
-              <a href="/on/技术" <% if (locals.onTopic == '技术') { %> class="tab_current"<% } else {%> class="tab" <% } %> >技术</a>
-              <a href="/on/腐败" <% if (locals.onTopic == '腐败') { %> class="tab_current"<% } else {%> class="tab" <% } %> >腐败</a>
-              <a href="/on/电影" <% if (locals.onTopic == '电影') { %> class="tab_current"<% } else {%> class="tab" <% } %> >电影</a>
-              <a href="/on/女神" <% if (locals.onTopic == '女神') { %> class="tab_current"<% } else {%> class="tab" <% } %> >女神</a>
-              <a href="/on/旅游" <% if (locals.onTopic == '旅游') { %> class="tab_current"<% } else {%> class="tab" <% } %> >旅游</a>
-              <a href="/on/二手" <% if (locals.onTopic == '二手') { %> class="tab_current"<% } else {%> class="tab" <% } %> >二手</a>
-              <a href="/on/合租" <% if (locals.onTopic == '合租') { %> class="tab_current"<% } else {%> class="tab" <% } %> >合租</a>
-              <a href="/on/搭档" <% if (locals.onTopic == '搭档') { %> class="tab_current"<% } else {%> class="tab" <% } %> >搭档</a>
+            <% onTopicTags.forEach(function(el, index) { %>
+              <a href="/on/<%= el%>" <% if (locals.onTopic == el) { %> class="tab_current"<% } else {%> class="tab" <% } %> >
+                <%= el%>
+              </a>
+            <% }) %>
           </div>
         <%- body %>
       </div>

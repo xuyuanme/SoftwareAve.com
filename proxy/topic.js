@@ -8,6 +8,26 @@ var Tag = require('./tag');
 var Reply = require('./reply');
 var Util = require('../libs/util');
 
+exports.getInCompanyTags = function(callback) {
+    Topic.distinct('in', {}, function(err, inCompanyTags){
+        if (err) {
+            return callback(err);
+        } else {
+            return callback(null, inCompanyTags);
+        }
+    });
+}
+
+exports.getOnTopicTags = function(callback) {
+    Topic.distinct('on', {}, function(err, onTopicTags){
+        if (err) {
+            return callback(err);
+        } else {
+            return callback(null, onTopicTags);
+        }
+    });
+}
+
 /**
  * 根据主题ID获取主题
  * Callback:
