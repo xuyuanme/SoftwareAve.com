@@ -113,6 +113,10 @@ exports.put = function (req, res, next) {
   title = sanitize(title).xss();
   var content = req.body.t_content;
   var topic_tags = [];
+
+  var inCompany = req.body.inCompany;
+  var onTopic = req.body.onTopic;
+
   if (req.body.topic_tags !== '') {
     topic_tags = req.body.topic_tags.split(',');
   }
@@ -146,7 +150,7 @@ exports.put = function (req, res, next) {
       res.render('topic/edit', {tags: tags, edit_error: '标题字数太多或太少', title: title, content: content});
     });
   } else {
-    Topic.newAndSave(title, content, req.session.user._id, function (err, topic) {
+    Topic.newAndSave(title, content, req.session.user._id, inCompany, onTopic, function (err, topic) {
       if (err) {
         return next(err);
       }
@@ -217,7 +221,7 @@ exports.showEdit = function (req, res, next) {
           }
         }
 
-        res.render('topic/edit', {action: 'edit', topic_id: topic._id, title: topic.title, content: topic.content, tags: all_tags});
+        res.render('topic/edit', {action: 'edit', topic_id: topic._id, title: topic.title, content: topic.content, tags: all_tags, inCompany: topic.in, onTopic: topic.on });
       });
     } else {
       res.render('notify/notify', {error: '对不起，你不能编辑此话题。'});
@@ -247,6 +251,10 @@ exports.update = function (req, res, next) {
       title = sanitize(title).xss();
       var content = req.body.t_content;
       var topic_tags = [];
+
+      var inCompany = req.body.inCompany;
+      var onTopic = req.body.onTopic;
+
       if (req.body.topic_tags !== '') {
         topic_tags = req.body.topic_tags.split(',');
       }
@@ -263,7 +271,7 @@ exports.update = function (req, res, next) {
               }
             }
           }
-          res.render('topic/edit', {action: 'edit', edit_error: '标题不能是空的。', topic_id: topic._id, content: content, tags: all_tags});
+          res.render('topic/edit', {action: 'edit', edit_error: '标题不能是空的。', topic_id: topic._id, content: content, tags: all_tags, inCompany: topic.in, onTopic: topic.on });
         });
       } else {
         //保存话题
@@ -272,6 +280,8 @@ exports.update = function (req, res, next) {
         topic.title = title;
         topic.content = content;
         topic.update_at = new Date();
+        topic.in = inCompany;
+        topic.on = onTopic;
         topic.save(function (err) {
           if (err) {
             return next(err);

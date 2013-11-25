@@ -15,26 +15,10 @@ var pkg = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json')));
 var config = require('./config').config;
 config.version = pkg.version;
 
-var models = require('./models');
-var Topic = models.Topic;
-
 var bootstrap = require('./bootstrap');
 
-Topic.distinct('in', {}, function(err, tags){
-    if (err) {
-        return callback(err);
-    } else {
-        inCompanyTags = tags;
-    }
-});
-
-Topic.distinct('on', {}, function(err, tags){
-    if (err) {
-        return callback(err);
-    } else {
-        onTopicTags = tags;
-    }
-});
+inCompanyTags = '';
+onTopicTags = '';
 
 // assets
 var assets = {};

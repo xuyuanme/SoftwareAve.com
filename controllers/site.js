@@ -15,6 +15,9 @@ var Tag = require('../proxy').Tag;
 var config = require('../config').config;
 var EventProxy = require('eventproxy');
 
+var models = require('../models');
+var topicModel = models.Topic;
+
 exports.index = function (req, res, next) {
   var inCompany;
   var onTopic;
@@ -28,6 +31,22 @@ exports.index = function (req, res, next) {
           onTopic = decodeURI(reqUrlSplit[++s]);
       }
   }
+
+    topicModel.distinct('in', {}, function (err, tags) {
+        if (err) {
+            return callback(err);
+        } else {
+            global.inCompanyTags = tags;
+        }
+    });
+
+    topicModel.distinct('on', {}, function (err, tags) {
+        if (err) {
+            return callback(err);
+        } else {
+            global.onTopicTags = tags;
+        }
+    });
 
   var page = parseInt(req.query.page, 10) || 1;
   var keyword = req.query.q || ''; // in-site search

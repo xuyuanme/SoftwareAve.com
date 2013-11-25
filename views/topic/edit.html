@@ -80,7 +80,23 @@
 
           <input type='hidden' id='topic_tags' name='topic_tags' value=''></input>
           <input type='hidden' name='_csrf' value='<%= csrf %>' />
-          <button id='submit_btn' type="submit" class='btn'>发布</button>
+            <label class='bold' for='inCompany'>公司：</label>
+            <select id='inCompany' name="inCompany">
+                <% global.inCompanyTags.forEach(function(el, index) { %>
+                <option <% if (el == locals.inCompany) { %> selected='selected' <% } %> >
+                <%= el%>
+                </option>
+                <% }) %>
+            </select>
+            <label class='bold' for="onTopic">话题：</label>
+            <select id='onTopic' name="onTopic">
+                <% global.onTopicTags.forEach(function(el, index) { %>
+                <option <% if (el == locals.onTopic) { %> selected='selected' <% } %> >
+                <%= el%>
+                </option>
+                <% }) %>
+            </select>
+          <button id='submit_btn' type="submit" class='btn pull-right'>发布</button>
         </fieldset>
       </form>
     </div>
