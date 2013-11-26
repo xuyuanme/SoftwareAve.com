@@ -9,19 +9,20 @@ module.exports = function() {
     var topic = new Topic(); topic.in = '华为'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '三星'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '爱立信'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '趋势'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '润和'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '文思海辉'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '诚迈'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '中软'; topic.hide = true; topic.save();
-    topic = new Topic(); topic.in = '中兴'; topic.hide = true; topic.save();
-    topic = new Topic(); topic.in = '邦宁'; topic.hide = true; topic.save();
-    topic = new Topic(); topic.in = '东软'; topic.hide = true; topic.save();
-    topic = new Topic(); topic.in = '神州'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '网易'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '欧唯特'; topic.hide = true; topic.save();
-    topic = new Topic(); topic.in = '苏宁易购'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '中兴'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '道富'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '阿里巴巴'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '网新恒天'; topic.hide = true; topic.save();
 
     topic = new Topic(); topic.on = '技术'; topic.hide = true; topic.save();
-    topic = new Topic(); topic.on = '腐败'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.on = '聚餐'; topic.hide = true; topic.save();
     topic = new Topic(); topic.on = '电影'; topic.hide = true; topic.save();
     topic = new Topic(); topic.on = '女神'; topic.hide = true; topic.save();
     topic = new Topic(); topic.on = '旅游'; topic.hide = true; topic.save();
