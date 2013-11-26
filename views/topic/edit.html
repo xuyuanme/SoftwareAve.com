@@ -92,7 +92,7 @@
             </select>
             <label class='bold' for="onTopic">话题：</label>
             <select id='onTopic' name="onTopic" class="span2">
-                <% if (!locals.in) { %><option value="" selected="selected"></option><% } %>
+                <% if (!locals.on) { %><option value="" selected="selected"></option><% } %>
                 <% global.onTopicTags.forEach(function(el, index) { %>
                 <option <% if (el == locals.on) { %> selected='selected' <% } %> >
                 <%= el%>
