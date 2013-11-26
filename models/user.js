@@ -38,7 +38,8 @@ var UserSchema = new Schema({
 
 UserSchema.virtual('avatar_url').get(function () {
   var url = this.profile_image_url || this.avatar || config.site_static_host + '/public/images/user_icon&48.png';
-  return url.replace('http://www.gravatar.com/', 'http://gravatar.qiniudn.com/');
+  return url;
+//  return url.replace('http://www.gravatar.com/', 'http://gravatar.qiniudn.com/');
 });
 
 mongoose.model('User', UserSchema);
