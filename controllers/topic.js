@@ -114,8 +114,8 @@ exports.put = function (req, res, next) {
   var content = req.body.t_content;
   var topic_tags = [];
 
-  var inCompany = req.body.inCompany;
-  var onTopic = req.body.onTopic;
+  var inCompany = req.body.inCompany.trim();
+  var onTopic = req.body.onTopic.trim();
 
   if (req.body.topic_tags !== '') {
     topic_tags = req.body.topic_tags.split(',');
@@ -252,8 +252,8 @@ exports.update = function (req, res, next) {
       var content = req.body.t_content;
       var topic_tags = [];
 
-      var inCompany = req.body.inCompany;
-      var onTopic = req.body.onTopic;
+      var inCompany = req.body.inCompany.trim();
+      var onTopic = req.body.onTopic.trim();
 
       if (req.body.topic_tags !== '') {
         topic_tags = req.body.topic_tags.split(',');

@@ -36,7 +36,8 @@ exports.index = function (req, res, next) {
         if (err) {
             return callback(err);
         } else {
-            global.inCompanyTags = tags;
+            // filter the empty values
+            global.inCompanyTags = tags.filter(function(item) { return !!item; });
         }
     });
 
@@ -44,7 +45,8 @@ exports.index = function (req, res, next) {
         if (err) {
             return callback(err);
         } else {
-            global.onTopicTags = tags;
+            // filter the empty values
+            global.onTopicTags = tags.filter(function(item) { return !!item; });
         }
     });
 

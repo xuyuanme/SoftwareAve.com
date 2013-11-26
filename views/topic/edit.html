@@ -81,20 +81,24 @@
           <input type='hidden' id='topic_tags' name='topic_tags' value=''></input>
           <input type='hidden' name='_csrf' value='<%= csrf %>' />
             <label class='bold' for='inCompany'>公司：</label>
-            <select id='inCompany' name="inCompany">
+            <select id='inCompany' name="inCompany" class="span2">
+                <% if (!locals.in) { %><option value="" selected="selected"></option><% } %>
                 <% global.inCompanyTags.forEach(function(el, index) { %>
                 <option <% if (el == locals.in) { %> selected='selected' <% } %> >
                 <%= el%>
                 </option>
                 <% }) %>
+                <option value="">（其他）</option>
             </select>
             <label class='bold' for="onTopic">话题：</label>
-            <select id='onTopic' name="onTopic">
+            <select id='onTopic' name="onTopic" class="span2">
+                <% if (!locals.in) { %><option value="" selected="selected"></option><% } %>
                 <% global.onTopicTags.forEach(function(el, index) { %>
                 <option <% if (el == locals.on) { %> selected='selected' <% } %> >
                 <%= el%>
                 </option>
                 <% }) %>
+                <option value="">（其他）</option>
             </select>
           <button id='submit_btn' type="submit" class='btn pull-right'>发布</button>
         </fieldset>
@@ -128,5 +132,18 @@ $(function () {
     $('#topic_tags').val(values);
     $('#create_topic_form').submit();
   });
+
+    $('select').change(function () {
+        var value = $(this).val();
+        if (!value || value == '') {
+            var other = prompt("请输入其他选项:");
+            if (!other) return false;
+            $(this).append('<option value="'
+                    + other
+                    + '" selected="selected">'
+                    + other
+                    + '</option>');
+        }
+    });
 });
 </script>
