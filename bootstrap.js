@@ -19,7 +19,7 @@ module.exports = function() {
     topic = new Topic(); topic.in = '中兴'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '道富'; topic.hide = true; topic.save();
     topic = new Topic(); topic.in = '阿里巴巴'; topic.hide = true; topic.save();
-    topic = new Topic(); topic.in = '网新恒天'; topic.hide = true; topic.save();
+    topic = new Topic(); topic.in = '恒天'; topic.hide = true; topic.save();
 
     topic = new Topic(); topic.on = '技术'; topic.hide = true; topic.save();
     topic = new Topic(); topic.on = '聚餐'; topic.hide = true; topic.save();
