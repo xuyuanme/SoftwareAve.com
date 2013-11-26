@@ -83,7 +83,7 @@
             <label class='bold' for='inCompany'>公司：</label>
             <select id='inCompany' name="inCompany">
                 <% global.inCompanyTags.forEach(function(el, index) { %>
-                <option <% if (el == locals.inCompany) { %> selected='selected' <% } %> >
+                <option <% if (el == locals.in) { %> selected='selected' <% } %> >
                 <%= el%>
                 </option>
                 <% }) %>
@@ -91,7 +91,7 @@
             <label class='bold' for="onTopic">话题：</label>
             <select id='onTopic' name="onTopic">
                 <% global.onTopicTags.forEach(function(el, index) { %>
-                <option <% if (el == locals.onTopic) { %> selected='selected' <% } %> >
+                <option <% if (el == locals.on) { %> selected='selected' <% } %> >
                 <%= el%>
                 </option>
                 <% }) %>

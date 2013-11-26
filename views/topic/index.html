@@ -60,11 +60,17 @@
       </div>
       <hr>
       <div class="tags">
-        <% if (topic.tags.length > 0) { %>
-        <span class='col_fade'>标签：</span> 
-        <%- partial('tag/tag_in_topic',{ collection: topic.tags, as: 'tag' }) %>
-        <% } else { %>
-        <span class='col_fade'>标签：无</span>  
+        <% if (topic.in) { %>
+          <span class='col_fade'>公司: </span>
+          <a href='/in/<%= locals.topic.in%>' class="tab_current" >
+              <%= locals.topic.in %>
+          </a>&nbsp;
+        <% } %>
+        <% if (topic.on) {%>
+          <span class='col_fade'>话题: </span>
+          <a href='/on/<%= locals.topic.on%>' class="tab_current" >
+              <%= locals.topic.on %>
+          </a>
         <% } %>
       </div>
       <div class="changes">
