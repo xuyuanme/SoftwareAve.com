@@ -17,8 +17,8 @@ config.version = pkg.version;
 
 var bootstrap = require('./bootstrap');
 
-inCompanyTags = '';
-onTopicTags = '';
+inCompanyTags = [];
+onTopicTags = [];
 
 // assets
 var assets = {};
